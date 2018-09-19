@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Main {
 	
 	final String EMPTY_STRING = "";
+	final boolean matthiasTest = false;
 	
 	Scanner in1;
 	Scanner in2;
