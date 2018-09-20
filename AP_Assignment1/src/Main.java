@@ -12,15 +12,19 @@ public class Main {
 	Scanner in1; //TODO: remove global variable 
 	Scanner in2; 
 	PrintStream out;
-	ArrayList<String> set1; // you'll have to create ADT Set
+	ArrayList<String> set1; 
 	ArrayList<String> set2;
 	
 	public Main() {
-		// can '{' or '}' be a part of any identifier?
 		
-		in1 = new Scanner(System.in)  ; //first set input
-		in2 = new Scanner("b1 b2 b3 b4 b5}"); //second set input
-		out = new PrintStream(System.out); //printing to System.out- terminal/console
+		//first set input
+		in1 = new Scanner(System.in)  ; 
+		//second set input
+		in2 = new Scanner("b1 b2 b3 b4 b5}"); 
+		
+		//printing to System.out- terminal/console
+		out = new PrintStream(System.out); 
+		
 		set1 = new ArrayList<>();
 		set2 = new ArrayList<>();
 		
@@ -31,13 +35,12 @@ public class Main {
 	public static void main (String args[]) {
 		new Main().start(); 
 		StringBuffer strB = new StringBuffer("study");
-		Identifier ident = new Identifier(strB, true, true);
+		//Identifier ident = new Identifier(strB, true, true);
 
-		//creating an object of the Main class to avoid making every function static 
-		// still don't get this
 	}
 	
-	public void start() { //created to avoid 
+	public void start() { 
+		
 		//read the first set
 		out.println("Give the first set: ");
 		parseInput(in1, set1);
@@ -50,6 +53,7 @@ public class Main {
 		printList(set2);
 	}
 	
+	// FROM A1 Absence of input is not seen as an error, but should lead to a repeat of the question.
 	public void parseInput(Scanner in, ArrayList<String> set) {
 		String nextInputWord = ""; // convert this to Abstract Data Type called Identifier
 		char nextChar;
@@ -75,7 +79,7 @@ public class Main {
 	}
 	
 	public void printList(ArrayList<String> list) {
-		for(int i=0; i<list.size(); i++) {
+		for(int i = 0; i < list.size(); i++) {
 			out.println(list.get(i));
 		}
 	}

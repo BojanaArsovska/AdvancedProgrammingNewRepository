@@ -1,33 +1,23 @@
+//  The identifiers must have the following properties:
+//	Only alphanumeric characters are allowed as elements of an identifier
+//  An identifier begins with a letter
+//	Identifiers have a length of at least 1 character.
 
-public class Identifier {
+class Identifier implements IdentifierInterface {
 	
 	private StringBuffer word;
-	private boolean inBoth;
-	private boolean isUnique;
 	
-	public Identifier() {}
+	public Identifier() {};
 	
-	public Identifier(StringBuffer word, boolean inBoth, boolean isUnique) {
+	public Identifier(StringBuffer word) {
 		this.word = word;
-		this.inBoth = inBoth;
-		this.isUnique = isUnique;
+	}
+	
+	public void init(char a) {
+		
 	}
 
+
 	
-	
-	public boolean getInBoth() {
-		return this.inBoth;
-	}
-	
-	public boolean getIsUnique() {
-		return this.isUnique;
-	}
-	
-	public void setInBoth(boolean inBoth) {
-		this.inBoth = inBoth;
-	}
-	 
-	public void setIsUnique(boolean isUnique) {
-		this.isUnique = isUnique;
-	}
+
 }
