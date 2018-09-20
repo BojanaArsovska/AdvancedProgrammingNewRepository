@@ -1,14 +1,16 @@
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner; 
+import java.lang.String;
+import java.lang.StringBuffer;
+
 
 public class Main {
 	
 	final String EMPTY_STRING = "";
-	final boolean matthiasTest = false;
 	
-	Scanner in1;
-	Scanner in2;
+	Scanner in1; //TODO: remove global variable 
+	Scanner in2; 
 	PrintStream out;
 	ArrayList<String> set1; // you'll have to create ADT Set
 	ArrayList<String> set2;
@@ -16,7 +18,7 @@ public class Main {
 	public Main() {
 		// can '{' or '}' be a part of any identifier?
 		
-		in1 = new Scanner("test this")  ; //first set input
+		in1 = new Scanner(System.in)  ; //first set input
 		in2 = new Scanner("b1 b2 b3 b4 b5}"); //second set input
 		out = new PrintStream(System.out); //printing to System.out- terminal/console
 		set1 = new ArrayList<>();
@@ -27,16 +29,21 @@ public class Main {
 	}
 	
 	public static void main (String args[]) {
-		new Main().start(); //creating an object of the Main class to avoid making every function static // still don't get this
+		new Main().start(); 
+		StringBuffer strB = new StringBuffer("study");
+		Identifier ident = new Identifier(strB, true, true);
+
+		//creating an object of the Main class to avoid making every function static 
+		// still don't get this
 	}
 	
 	public void start() { //created to avoid 
 		//read the first set
-		out.println("Give the the first set: ");
+		out.println("Give the first set: ");
 		parseInput(in1, set1);
 		
 		//read the second set
-		out.println("Give the the second set: ");
+		out.println("Give the second set: ");
 		parseInput(in2, set2);
 		
 		printList(set1);
