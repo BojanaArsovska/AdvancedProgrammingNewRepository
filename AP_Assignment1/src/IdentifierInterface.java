@@ -1,36 +1,63 @@
 
 public interface IdentifierInterface{
 /*
- *
  * Elements: Characters of type char
  * Structure: Linear
  * Domain:  
- * 	-first letter is a alphabetic character
- *  -only alphanumeric characters
- *  -minimum of 1 character
+ * 	- first letter is a alphabetic character
+ *  - only alphanumeric characters
+ *  - minimum of 1 character
  *  
- *  
- * constructors
+ * Identifier ();
+ *   PRE  - N/A
+ *   POST - default constructor.
+ *   
+ * Identifier (char a);
+ *   PRE  - N/A
+ *   POST - A new Identifier-object has been made and contains an Identifier object with a dummy ('a') alphabetic character.
  *
- * NumberStack();
- *   PRE  - 
- *   POST -A new NumberStack-object has been made and contains the empty stack.
- *
- * NumberStack (NumberStack src); this is the copy constructor
- *   PRE  - 
- *   POST - A new NumberStack-object has been made and contains a copy of src.
- * 
+ * Identifier (Identifier src); 
+ *   PRE  - N/A
+ *   POST - A new Identifier-object has been made and contains a deep copy of src.
  */
 	
-// initalize the object with "a" which then gets overwritten so that an identifier is never empty 
+// initialize the object with "a" which then gets overwritten so that an identifier is never empty 
 // gets overwritten by function called init(char a); 
 // every ADT needs an init
 // add function
-// remove function needs to check that the identigier is empty 
-// copy constructor needs to be a deep copy 
+// remove function needs to check that the identifier is empty 
+// get function
 	
 
 	void init(char a);
+	/* PRE  - 
+	   POST - initializes an identifier with the user input, takes a char as an argument and puts it at the front of the StringBuilder, this method overwrites the dummy character.
+	*/
 	
-
+	void add(char a);
+	/* PRE  - an Identifier exists
+	   POST - a character is added to the 
+	*/
+	
+	void remove(char a);
+	/* PRE  - an Identifier exists and cannot remove the last character from the identifier (i.e. domain must hold at any time)
+	   POST - a character at the last index is removed from the StringBuilder object
+	*/
+	
+	void set(char a, int index);
+	/* PRE  - an Identifier exists
+	   POST - a character is set at an index in the StringBuilder object
+	*/
+	
+	
+	
+	
+	
 }
+
+/*
+ * misc sander notes
+ * for push there is no pre condition but there could be, there is none becuase its easier to have something else check it by checking something outside of the class
+ * 
+ * 
+*/

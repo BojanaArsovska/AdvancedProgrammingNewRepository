@@ -5,17 +5,19 @@
 
 class Identifier implements IdentifierInterface {
 	
-	private StringBuffer word;
+	private StringBuilder word;
 	
 	public Identifier() {};
 	
-	public Identifier(StringBuffer word) {
+	public Identifier(StringBuilder word) {
 		this.word = word;
 	}
 	
 	public void init(char a) {
 		
 	}
+	
+	public void add(StringBuilder strB)
 
 
 	

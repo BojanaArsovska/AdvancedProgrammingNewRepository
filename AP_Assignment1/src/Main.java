@@ -2,7 +2,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner; 
 import java.lang.String;
-import java.lang.StringBuffer;
+import java.lang.StringBuilder;
 
 
 public class Main {
@@ -34,8 +34,8 @@ public class Main {
 	
 	public static void main (String args[]) {
 		new Main().start(); 
-		StringBuffer strB = new StringBuffer("study");
-		//Identifier ident = new Identifier(strB, true, true);
+		StringBuilder strB = new StringBuilder("study");
+		Identifier ident = new Identifier(strB);
 
 	}
 	
