@@ -29,7 +29,7 @@ public interface IdentifierInterface{
 // get function
 	
 
-	void init(char a);
+	void init();
 	/* PRE  - 
 	   POST - initializes an identifier with the user input, takes a char as an argument and puts it at the front of the StringBuilder, this method overwrites the dummy character.
 	*/
@@ -39,19 +39,15 @@ public interface IdentifierInterface{
 	   POST - a character is added to the 
 	*/
 	
-	void remove(char a);
+	void remove(int startIndex, int endIndex);
 	/* PRE  - an Identifier exists and cannot remove the last character from the identifier (i.e. domain must hold at any time)
 	   POST - a character at the last index is removed from the StringBuilder object
 	*/
 	
-	void set(char a, int index);
+	void set(int index, char a);
 	/* PRE  - an Identifier exists
 	   POST - a character is set at an index in the StringBuilder object
 	*/
-	
-	
-	
-	
 	
 }
 

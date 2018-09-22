@@ -4,7 +4,12 @@ import java.util.Scanner;
 import java.lang.String;
 import java.lang.StringBuilder;
 
-
+//the main body of the program should not be in a main try catch 
+//prevent try catch and throw the least amount of try catch blocks
+//the try catch blocks get nested and tricky
+//try not to use too many
+//one try catch block for the parser
+//Missing is done to a single catch block
 public class Main {
 	
 	final String EMPTY_STRING = "";
@@ -34,8 +39,6 @@ public class Main {
 	
 	public static void main (String args[]) {
 		new Main().start(); 
-		StringBuilder strB = new StringBuilder("study");
-		Identifier ident = new Identifier(strB);
 
 	}
 	
