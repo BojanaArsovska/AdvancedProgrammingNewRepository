@@ -1,4 +1,3 @@
-
 public interface IdentifierInterface{
 /*
  * Elements: Characters of type char
@@ -19,19 +18,27 @@ public interface IdentifierInterface{
  * Identifier (Identifier src); 
  *   PRE  - N/A
  *   POST - A new Identifier-object has been made and contains a deep copy of src.
- */
-	
-// initialize the object with "a" which then gets overwritten so that an identifier is never empty 
-// gets overwritten by function called init(char a); 
-// every ADT needs an init
-// add function
-// remove function needs to check that the identifier is empty 
-// get function
-	
-
-	void init();
+ 
+ misc sander notes
+	-(for example) for push there is no pre condition but there could be, 
+		there is none becuase its easier to have something else check it by checking something outside of the class
+	-if the first character is a space or a random character throw an exception like extract the curly bracket first and ask for the set again
+	-initialize the object with "a" which then gets overwritten so that an identifier is never empty 
+		gets overwritten by function called init(char a); 
+	-every ADT needs an init()
+	-add function
+	-remove function needs to check that the identifier is empty 
+	-get function
+	-The identifiers must have the following properties:
+	-Only alphanumeric characters are allowed as elements of an identifier
+	-An identifier begins with a letter
+	-Identifiers have a length of at least 1 character.
+*/
+	void init(char a);
 	/* PRE  - 
-	   POST - initializes an identifier with the user input, takes a char as an argument and puts it at the front of the StringBuilder, this method overwrites the dummy character.
+	   POST - initializes an identifier with the user input, 
+	   		  the char argument is placed at the front of the StringBuilder, 
+	   		  this method overwrites the dummy character.
 	*/
 	
 	void add(char a);
@@ -49,11 +56,17 @@ public interface IdentifierInterface{
 	   POST - a character is set at an index in the StringBuilder object
 	*/
 	
+	char getChar(int index);
+	/* PRE  - an Identifier exists
+	  		- the index is not out of bounds
+	   POST - a character from the identifier is returned
+	*/
+	
+	String toString();
+	/* PRE  - 
+	   POST - StringBuilder identifier is turned into a string and returned
+	*/
 }
 
-/*
- * misc sander notes
- * for push there is no pre condition but there could be, there is none becuase its easier to have something else check it by checking something outside of the class
- * 
- * 
-*/
+
+
