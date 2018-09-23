@@ -50,7 +50,13 @@ public interface IdentifierInterface{
 	*/
 	
 	
+	// Harsh: "equals method that takes an Identifier as input and returns true if this is same to input
 	
+	// Harsh: "getter and setter methods for class variables
+	
+	// Harsh "boolean function isValid which returns if this identifier isValid or not"
+	
+		
 	
 	
 }
