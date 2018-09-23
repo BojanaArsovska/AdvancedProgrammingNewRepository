@@ -4,7 +4,8 @@ public interface IdentifierInterface{
  * Elements: Characters of type char
  * Structure: Linear
  * Domain: Only alphanumeric characters
- *  
+ * 
+ * Costructors:  
  * Identifier ();
  *   PRE  - N/A
  *   POST - A new Identifier-object has been made and contains the empty identifer.
@@ -21,11 +22,6 @@ public interface IdentifierInterface{
 	void add(char a);
 	/* PRE  - an Identifier with size > 1 exists
 	   POST - a character is added to the current identifier
-	*/
-	
-	void remove(char a);
-	/* PRE  - an Identifier exists and cannot remove the last character from the identifier (i.e. domain must hold at any time)
-	   POST - a character at the last index is removed from the StringBuilder object
 	*/
 	
 	boolean isEmpty ();
