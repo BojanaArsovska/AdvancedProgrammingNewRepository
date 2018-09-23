@@ -3,40 +3,24 @@ public interface IdentifierInterface{
 /*
  * Elements: Characters of type char
  * Structure: Linear
- * Domain:  
- * 	- first letter is a alphabetic character
- *  - only alphanumeric characters
- *  - minimum of 1 character
+ * Domain: Only alphanumeric characters
  *  
  * Identifier ();
  *   PRE  - N/A
- *   POST - default constructor.
+ *   POST - A new Identifier-object has been made and contains the empty identifer.
  *   
- * Identifier (char a);
- *   PRE  - N/A
- *   POST - A new Identifier-object has been made and contains an Identifier object with a dummy ('a') alphabetic character.
- *
  * Identifier (Identifier src); 
  *   PRE  - N/A
- *   POST - A new Identifier-object has been made and contains a deep copy of src.
+ *   POST - A new Identifier-object has been made and contains a copy of src.
  */
-	
-// initialize the object with "a" which then gets overwritten so that an identifier is never empty 
-// gets overwritten by function called init(char a); 
-// every ADT needs an init
-// add function
-// remove function needs to check that the identifier is empty 
-// get function
-	
-
 	void init(char a);
 	/* PRE  - 
-	   POST - initializes an identifier with the user input, takes a char as an argument and puts it at the front of the StringBuilder, this method overwrites the dummy character.
+	   POST - The new identifier object has been initialized with the input a. 
 	*/
 	
 	void add(char a);
-	/* PRE  - an Identifier exists
-	   POST - a character is added to the 
+	/* PRE  - an Identifier with size > 1 exists
+	   POST - a character is added to the current identifier
 	*/
 	
 	void remove(char a);
@@ -44,26 +28,25 @@ public interface IdentifierInterface{
 	   POST - a character at the last index is removed from the StringBuilder object
 	*/
 	
-	void set(char a, int index);
-	/* PRE  - an Identifier exists
-	   POST - a character is set at an index in the StringBuilder object
+	boolean isEmpty ();
+	/* PRE  - 
+	   POST - true:  The amount of characters of the identifier equals 0.
+	          false: the amount of characters of the identifier is greater than 0.
+	*/
+
+	int size ();
+	/* PRE  - 
+	   POST - The amount of characters of the identifier has been returned.
+	*/
+
+	boolean equals(Identifier other);
+	/* PRE  - 
+	   POST - true:  The current identifier is identical to the other.
+	          false: The current identifier isn't identical to the other
 	*/
 	
-	
-	// Harsh: "equals method that takes an Identifier as input and returns true if this is same to input
-	
-	// Harsh: "getter and setter methods for class variables
-	
-	// Harsh "boolean function isValid which returns if this identifier isValid or not"
-	
-		
-	
-	
+	String toString();
+	/* PRE  - 
+	   POST - The characters of the identifier has been returned as a String object.
+	*/
 }
-
-/*
- * misc sander notes
- * for push there is no pre condition but there could be, there is none becuase its easier to have something else check it by checking something outside of the class
- * 
- * 
-*/
