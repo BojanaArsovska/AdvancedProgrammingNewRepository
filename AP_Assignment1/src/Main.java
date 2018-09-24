@@ -1,145 +1,115 @@
 import java.io.PrintStream;
-import java.util.ArrayList;
 import java.util.Scanner; 
 import java.lang.String;
-import java.lang.StringBuilder;
-/*Sander Notes
-	-the main body of the program should not be in a main try catch 
-	-prevent try catch and throw the least amount of try catch blocks
-	-the try catch blocks get nested and tricky
-	-try not to use too many
-	-one try catch block for the parser
-	-Missing is done to a single catch block
-
-
-
- NOTES FROM LECTURE 
-- every methods that are in the specification should be public in the implementation
-- therefore all the methods from the implementation that are not in the specification should be private
-- no read() or write() methods inside the specification
-   → elementary operations to program read() and write() should be in the specification
-- read()
-   → init()
-   → push()
-- write()
-   → pop()
-   → isEmpty()
-
-- assignment 1
-- 2 classes
-   → Identifier
-      ⇒ add element by element
-      ⇒ elementary operation returning character by character
-   → Set
-
-- what can be put in an interface:
-   → constants
-   → headings of methods
-
-- in the implementation of an interface:
-   → all constants from the interface are copied
-   → all methods should be implemented
-
-- difference String and StringBuffer
-   → strings are imutable (cannot change their content)
-   → StringBuffer = row of characters where you can change the content
-   → StringBuffer are more efficient
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Set union(Set rhs) throws Exception;
-/* PRE - the union of this 2 sets shouldn't contain more than 20 elements
-   POST - SUCESS: the union of the 2 sets has be calculated and is returned
-          FAILURE: union > 20 elements
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-- the interface should at least contain those methods
-   → default constructor, copy constructor, init()
-   → elementary opertions for read and write
-   → natural operations for this object
-   → operations forced by PRE conditions
- */
-
+import java.util.regex.Pattern;
 
 public class Main {
 	
-	final String EMPTY_STRING = "";
+	//Method to read 1 character. 
+	char nextChar (Scanner in) {
+		return in.next().charAt(0); }
 	
-	Scanner in1; //TODO: remove global variable 
-	Scanner in2; 
-	PrintStream out;
-	ArrayList<String> set1; 
-	ArrayList<String> set2;
-	
-	public Main() {
-		
-		//first set input
-		in1 = new Scanner(System.in)  ; 
-		//second set input
-		in2 = new Scanner("b1 b2 b3 b4 b5}"); 
-		
-		//printing to System.out- terminal/console
-		out = new PrintStream(System.out); 
-		
-		set1 = new ArrayList<>();
-		set2 = new ArrayList<>();
-		
-		in1.useDelimiter(EMPTY_STRING);
-		in2.useDelimiter(EMPTY_STRING);
+	// Method to check if the next character to be read when 
+	// calling nextChar() is equal to the provided character.
+	boolean nextCharIs(Scanner in, char c) { 					
+		return in.hasNext(Pattern.quote(c+"")); 
 	}
 	
-	public static void main (String args[]) {
-		new Main().start(); 
+	// Method to check if the next character to be read when
+	// calling nextChar() is a digit.
+	boolean nextCharIsDigit (Scanner in) {
+		return in.hasNext("[0-9]"); 
+	}
 
+	// Method to check if the next character to be read when 
+	// calling nextChar() is a letter.
+	boolean nextCharIsLetter (Scanner in) { 
+		return in.hasNext("[a-zA-Z]"); 
 	}
+
 	
-	public void start() { 
-		
-		//read the first set
-		out.println("Give the first set: ");
-		parseInput(in1, set1);
-		
-		//read the second set
-		out.println("Give the second set: ");
-		parseInput(in2, set2);
-		
-		printList(set1);
-		printList(set2);
-	}
-	
-	// FROM A1 Absence of input is not seen as an error, but should lead to a repeat of the question.
-	public void parseInput(Scanner in, ArrayList<String> set) {
-		String nextInputWord = ""; // convert this to Abstract Data Type called Identifier
-		char nextChar;
-		while(in.hasNext()) {
-			nextChar = readNextChar(in);
-			
-			//add checks for other characters
-			if(nextChar == ' ' || nextChar == '\n') {
-				if(nextInputWord.length() > 0) {
-					//before adding the next identifier to the set, make a check
-					set.add(nextInputWord);
-					nextInputWord = "";
-				}
-			} else {
-				nextInputWord += nextChar;
-			}
-		}
-		
-		//read the last word from the input
-		if(nextInputWord.length() > 0) {
-			set.add(nextInputWord);
-		}
-	}
-	
-	public void printList(ArrayList<String> list) {
-		for(int i = 0; i < list.size(); i++) {
-			out.println(list.get(i));
-		}
-	}
-	
-	public char readNextChar(Scanner in) {
-		return in.next().charAt(0);
-	}
+	static final int MAX_NUMBER_OF_ELEMENTS = 20;
+
+    PrintStream out;
+    public static void main (String arcs[]) {
+    	new Main().run();
+    }
+
+    void run () {
+        Scanner in = new Scanner(System.in);
+        Set set1 = new Set(), set2 = new Set();
+
+        while (askBothSets(in, set1, set2)) {
+            // calculateAndGiveOutput(set1, set2);
+        }
+    }
+        
+    boolean askBothSets (Scanner input, Set set1, Set set2) {
+        return askSet(input, "Give first set : ", set1) &&
+               askSet(input, "Give second set : ", set2);
+    }
+
+    boolean askSet (Scanner input, String question, Set set) {
+        do {
+            out.printf("%s", 5);
+            if (! input.hasNextLine()) {
+                out.printf("\n"); // otherwise line with ^D will be overwritten
+                return false;
+            }
+        } while (! inputContainsCorrectSet(input, set));
+        return true;
+    }
+    
+
+/* The method inputContainsCorrectSet(Scanner input, Set set) should, while
+   reading the input (the answer), check whether the input is correct.
+
+   N.B. Do not try to give too intelligent errors. This is not an exercise in
+        artificial intelligence.
+        For instance, if the input is "{abc def} gh" instead of "{abc def gh}",
+        an (relatively easy) error like "no input allowed after '}' is fine. You
+        don't have to write a program that seems to understand what you were
+        trying to do and would give an error like "by accident you put the '}'
+        before the last identifier instead of after it. Please correct this."
+*/
+
+    
+    boolean inputContainsCorrectSet (Scanner in, Set set ){
+    	in.useDelimiter(""); //constant for delimiter
+    	boolean flag = false;
+    	
+    	// An identiﬁer begins with a letter. 
+    	
+    	if(nextCharIs(in, '{' )) {
+    		if (nextCharIsLetter(in) ) {
+	    		do {
+	    			nextChar(in);
+	    		} while (!nextCharIs(in, '}') && in.hasNext());
+    		}	
+    	}
+    }
+    		
+//    		TODO: read input and store in a character 
+//    		use one of the functions described in the assignment
+//    		check if it is a space or something else
+//    			if space, then do something
+//    			else check if it is a valid identiofier (alphanumeric)
+//    			eventualy keep adding to the identifier object
+    	}
+    	
+    	if ( not correct) {
+    		// error message 
+    		// skip
+    		// false
+    	}
+    	else {
+    		//implement Identifer
+    		//implement Set
+    		//learn and implement StringBuilder
+    		//set = input
+    		// true
+    	}
+    	
+    }
+   
 }
