@@ -17,7 +17,7 @@ public class Main {
         Set set1 = new Set(), set2 = new Set();
 
         while (askBothSets(in, set1, set2)) {
-            // calculateAndGiveOutput(set1, set2);
+            out.printf("%s", calculateOutput(set1, set2));
         }
     }
         
@@ -33,7 +33,7 @@ public class Main {
                 out.printf("\n"); // otherwise line with ^D will be overwritten
                 return false;
             }
-        } while (! inputContainsCorrectSet(input, set));
+        } while (!inputContainsCorrectSet(input, set));
         return true;
     }
     
@@ -49,9 +49,8 @@ public class Main {
         trying to do and would give an error like "by accident you put the '}'
         before the last identifier instead of after it. Please correct this."
 */
-
-    
-    boolean inputContainsCorrectSet (Scanner in, Set set ){
+ 
+    boolean inputContainsCorrectSet (Scanner in, Set set){
     	//set delimeter of scanner
     	String nextInputWord = "";
     	char nextChar; 	
@@ -59,14 +58,18 @@ public class Main {
     	while(in.hasNext()) {
     		nextChar = in.next().charAt(0);
     		
-    		if(nextChar == ' ' || nextChar '\n' || nextChar == '{') {
-    			if(in.hasNext()) 
-    			//create a new identifier
-    			if(nextInputWord.length() > 0) {
-    				set.add()
+    		if(nextChar. == ' ' || nextChar '\n' || nextChar == '{') {
+    			if(in.hasNext()) {
     				
     			}
+    				
+    			//create a new identifier
+    			if(nextInputWord.length() > 0) {
+    				set.add(nextChar);
+    			}
+    			
     		}
+    		
     		else {
     			nextInputWord += nextChar;
     		}
@@ -75,30 +78,29 @@ public class Main {
 		if(nextInputWord.length() > 0) {
 			set.add(nextInputWord);
 		}
+		return true;
+    }
 		
     		
     		
-    		read input and store in a cbahracter 
-    		use one of the functions described in the assignment
-    		check if it is a space or something else
-    			if space, then do something
-    			else check if it is a valid identiofier (alphanumeric)
-    			eventua;y keep adding to the identifier object
-    	}
+//    		read input and store in a character 
+//    		use one of the functions described in the assignment
+//    		check if it is a space or something else
+//    			if space, then do something
+//    			else check if it is a valid identifier (alphanumeric)
+//    			eventually keep adding to the identifier object
     	
-    	if ( not correct) {
-    		// error message 
-    		// skip
-    		// false
-    	}
-    	else {
-    		//implement Identifer
-    		//implement Set
-    		//learn and implement StringBuilder
-    		//set = input
-    		// true
-    	}
+    
+    String calculateOutput(Set set1, Set set2) {
     	
+    	return "difference = " + set1.difference(set2).toString() + "\n" + 
+    		   "intersection = " + set1.intersection(set2).toString() + "\n" + 
+    	       "union = " + set1.union(set2).toString() + "\n" + 
+    		   "sym. diff. = " + set1.symmetricDifference(set2).toString() + "\n";
     }
+    
+    	
+    	
+    
    
 }

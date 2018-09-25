@@ -76,7 +76,7 @@ class Identifier implements IdentifierInterface {
 	public String toString() {
 		String result = "";
 		
-		for(int i=0; i<amountOfElements; i++) {
+		for(int i = 0; i < amountOfElements; i++) {
 			result += array[i];
 		}
 		

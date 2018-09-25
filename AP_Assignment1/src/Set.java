@@ -119,6 +119,7 @@ class Set implements SetInterface{
 	}
 
 	public Set intersection(Set other) {
+		
 		Set result = new Set(this);
 		
 		for(int i=0; i<other.size(); i++) {
@@ -130,6 +131,7 @@ class Set implements SetInterface{
 	}
 
 	public Set symmetricDifference(Set other) {
+		
 		Set result = this.union(other);
 		Set intersection = this.intersection(other);
 		
